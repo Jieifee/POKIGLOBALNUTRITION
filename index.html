@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POKI | Si bon que même le chat en est jaloux.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --poki-orange: #E25822; /* Extrait du Logo/Packaging */
+            --poki-charcoal: #121212;
+            --poki-ivory: #F9F7F2;
+            --poki-gold: #D4AF37;
+        }
+
+        body {
+            background-color: var(--poki-ivory);
+            color: var(--poki-charcoal);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .brand-serif {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.02em;
+        }
+
+        /* Animation de révélation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Interaction du "Chat à l'affût" */
+        #stalking-cat {
+            position: fixed;
+            bottom: -50px;
+            right: 50px;
+            width: 180px;
+            z-index: 50;
+            pointer-events: none;
+            transition: transform 0.4s ease-out;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        }
+
+        .bg-pattern {
+            background-image: radial-gradient(var(--poki-orange) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.1;
+        }
+
+        .btn-premium {
+            background: var(--poki-orange);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-premium:hover {
+            background: var(--poki-charcoal);
+            transform: translateY(-2px);
+        }
+
+        .product-card {
+            background: white;
+            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        /* Scrollbar personnalisée */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--poki-ivory); }
+        ::-webkit-scrollbar-thumb { background: var(--poki-orange); }
+
+        .parallax-img {
+            transition: transform 0.1s ease-out;
+        }
+
+        .cat-bubble {
+            position: absolute;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            font-style: italic;
+            font-size: 0.875rem;
+            width: 150px;
+            top: -60px;
+            left: -40px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+
+        #stalking-cat.speak .cat-bubble {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-[100] px-6 py-8 flex justify-between items-center mix-blend-difference invert">
+        <div class="w-24">
+            <img src="WhatsApp Image 2026-01-17 à 16.37.31_8d7f3bfa.jpg" alt="Logo Poki" class="w-full">
+        </div>
+        <div class="hidden md:flex gap-12 text-sm uppercase tracking-widest font-semibold text-white">
+            <a href="#story" class="hover:opacity-60 transition">La Jalousie</a>
+            <a href="#products" class="hover:opacity-60 transition">Le Menu</a>
+            <a href="#values" class="hover:opacity-60 transition">Qualité</a>
+            <a href="#" class="hover:opacity-60 transition">Boutique</a>
+        </div>
+        <div class="md:hidden">
+            <div class="w-8 h-0.5 bg-white mb-2"></div>
+            <div class="w-8 h-0.5 bg-white"></div>
+        </div>
+    </nav>
+
+    <!-- Le Chat à l'affût -->
+    <div id="stalking-cat">
+        <div class="cat-bubble">"Je sais que c'est pour les chiens... mais pourquoi ?"</div>
+        <img src="Le chat (1).jpg" alt="Chat Jaloux" class="w-full rounded-full border-4 border-white">
+    </div>
+
+    <!-- Section Hero -->
+    <section class="relative h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+        <div class="absolute inset-0 bg-pattern"></div>
+        
+        <div class="relative z-10 reveal active">
+            <p class="uppercase tracking-[0.4em] text-xs mb-6 font-bold text-orange-700">Nutrition Afro-Moderne Premium</p>
+            <h1 class="text-6xl md:text-9xl mb-8 leading-tight">
+                Si bon,<br>
+                <span class="italic text-orange-600">que même le chat</span><br>
+                en est jaloux.
+            </h1>
+            
+            <div class="max-w-md mx-auto mb-12">
+                <div class="w-64 md:w-80 mx-auto relative group">
+                    <img src="WhatsApp Image 2026-01-17 à 18.46.13_4ffaf8a4.jpg" alt="Packaging Poki" class="w-full transform transition duration-700 group-hover:scale-105 drop-shadow-2xl">
+                </div>
+            </div>
+            
+            <a href="#products" class="btn-premium inline-block">Découvrir la gamme</a>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <!-- Histoire / Concept -->
+    <section id="story" class="py-32 px-6 md:px-24 grid md:grid-cols-2 gap-20 items-center">
+        <div class="reveal">
+            <h2 class="text-5xl md:text-7xl mb-8">Une Bataille<br>Silencieuse de Goût.</h2>
+            <div class="space-y-6 text-lg text-gray-700 leading-relaxed font-light">
+                <p>Chez Poki, nous ne nous contentons pas de formuler des croquettes. Nous créons des expériences culinaires qui transcendent les espèces. Inspirées par les saveurs vibrantes de l'Afrique moderne, nos recettes sont si aromatiques et denses en nutriments qu'elles ont créé un problème inattendu.</p>
+                <p class="font-bold text-black">Le chat ne quitte plus le bol des yeux.</p>
+                <p>Chaque sac de Poki est une déclaration de luxe pour votre compagnon, et une source de ressentiment discret pour tous les autres occupants de la maison.</p>
+            </div>
+        </div>
+        <div class="relative reveal">
+            <div class="aspect-[4/5] bg-gray-200 overflow-hidden">
+                <img src="Le chat (1).jpg" alt="L'observateur jaloux" class="w-full h-full object-cover parallax-img" data-speed="0.05">
+            </div>
+            <div class="absolute -bottom-10 -left-10 bg-orange-600 p-8 text-white hidden md:block">
+                <p class="text-3xl font-serif italic">"Il vous juge depuis le dîner."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Présentation Produits -->
+    <section id="products" class="py-32 bg-zinc-900 text-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div class="reveal">
+                    <p class="text-orange-500 uppercase tracking-widest text-sm mb-4">La Collection</p>
+                    <h2 class="text-5xl md:text-7xl">Sélectionnez le<br>Bonheur Canin.</h2>
+                </div>
+                <div class="reveal md:text-right max-w-sm">
+                    <p class="text-gray-400">Notre mélange signature composé de protéines nobles, de céréales ancestrales et de super-aliments.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Produit 1 -->
+                <div class="product-card group p-8 bg-zinc-800 reveal">
+                    <div class="aspect-square mb-8 overflow-hidden">
+                        <img src="WhatsApp Image 2026-01-17 à 18.46.13_4ffaf8a4.jpg" alt="Produit" class="w-full h-full object-contain transition duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-2xl mb-2">Bœuf Originel & Teff</h3>
+                    <p class="text-gray-500 text-sm mb-6">Formule signature haute énergie.</p>
+                    <div class="flex justify-between items-center pt-6 border-t border-zinc-700">
+                        <span class="text-xl font-bold">85,00 €</span>
+                        <button class="text-orange-500 font-bold uppercase text-xs tracking-widest hover:text-white transition">Ajouter +</button>
+                    </div>
+                </div>
+
+                <!-- Produit 2 -->
+                <div class="product-card group p-8 bg-zinc-800 reveal" style="transition-delay: 0.2s">
+                    <div class="aspect-square mb-8 overflow-hidden">
+                        <img src="WhatsApp Image 2026-01-17 à 18.46.13_4ffaf8a4.jpg" alt="Produit" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-2xl mb-2">Tilapia Sauvage</h3>
+                    <p class="text-gray-500 text-sm mb-6">Revitalisation du pelage (Omega-rich).</p>
+                    <div class="flex justify-between items-center pt-6 border-t border-zinc-700">
+                        <span class="text-xl font-bold">92,00 €</span>
+                        <button class="text-orange-500 font-bold uppercase text-xs tracking-widest hover:text-white transition">Ajouter +</button>
+                    </div>
+                </div>
+
+                <!-- Produit 3 -->
+                <div class="product-card group p-8 bg-zinc-800 reveal" style="transition-delay: 0.4s">
+                    <div class="aspect-square mb-8 overflow-hidden">
+                        <img src="WhatsApp Image 2026-01-17 à 18.46.13_4ffaf8a4.jpg" alt="Produit" class="w-full h-full object-contain brightness-75 group-hover:brightness-100 transition duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-2xl mb-2">Volailles de la Savane</h3>
+                    <p class="text-gray-500 text-sm mb-6">Protéines maigres pour adultes actifs.</p>
+                    <div class="flex justify-between items-center pt-6 border-t border-zinc-700">
+                        <span class="text-xl font-bold">78,00 €</span>
+                        <button class="text-orange-500 font-bold uppercase text-xs tracking-widest hover:text-white transition">Ajouter +</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Le Moment du Chat -->
+    <section class="h-[80vh] flex items-center justify-center relative overflow-hidden bg-white">
+        <div class="absolute inset-0 z-0">
+             <img src="Le chat (1).jpg" alt="Gros plan chat" class="w-full h-full object-cover opacity-20 scale-110 grayscale" id="zoom-cat">
+        </div>
+        <div class="relative z-10 text-center px-6 reveal">
+            <h2 class="text-6xl md:text-8xl mb-6">"Est-ce l'odeur ?"</h2>
+            <p class="text-xl font-serif italic max-w-xl mx-auto">Il s'interroge, alors qu'il regarde le bol toucher le sol. Le chat reconnaît la qualité. Il aimerait juste être un chien aujourd'hui.</p>
+        </div>
+    </section>
+
+    <!-- Valeurs de la Marque -->
+    <section id="values" class="py-32 bg-orange-600 text-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+            <div class="reveal">
+                <h4 class="text-4xl font-serif mb-4">01.</h4>
+                <p class="font-bold uppercase tracking-widest mb-2">Protéines Nobles</p>
+                <p class="text-orange-200 text-sm">Viandes de qualité consommation humaine pour une santé musculaire optimale.</p>
+            </div>
+            <div class="reveal" style="transition-delay: 0.1s">
+                <h4 class="text-4xl font-serif mb-4">02.</h4>
+                <p class="font-bold uppercase tracking-widest mb-2">Grains Ancestraux</p>
+                <p class="text-orange-200 text-sm">Teff, Sorgho et Millet pour une énergie durable et une digestion parfaite.</p>
+            </div>
+            <div class="reveal" style="transition-delay: 0.2s">
+                <h4 class="text-4xl font-serif mb-4">03.</h4>
+                <p class="font-bold uppercase tracking-widest mb-2">Bio-Disponible</p>
+                <p class="text-orange-200 text-sm">Pressé à froid pour préserver chaque enzyme et minéral vital.</p>
+            </div>
+            <div class="reveal" style="transition-delay: 0.3s">
+                <h4 class="text-4xl font-serif mb-4">04.</h4>
+                <p class="font-bold uppercase tracking-widest mb-2">Afro-Urbain</p>
+                <p class="text-orange-200 text-sm">Conçu pour le citoyen du monde et son compagnon urbain.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <footer class="bg-zinc-900 text-white pt-40 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-5xl md:text-8xl mb-12 reveal">Prêt à susciter<br><span class="text-orange-500 italic">l'envie à la maison ?</span></h2>
+            <div class="reveal">
+                <a href="#" class="btn-premium inline-block">Commander Poki maintenant</a>
+            </div>
+            
+            <div class="mt-40 grid md:grid-cols-3 gap-12 border-t border-zinc-800 pt-20 text-left text-xs uppercase tracking-widest font-semibold text-gray-500">
+                <div>
+                    <img src="WhatsApp Image 2026-01-17 à 16.37.31_8d7f3bfa.jpg" alt="Logo" class="w-20 mb-8 invert">
+                    <p>&copy; 2026 Poki Global Nutrition.</p>
+                    <p>Conçu pour l'Audace.</p>
+                </div>
+                <div>
+                    <h5 class="text-white mb-6">Emplacements</h5>
+                    <p>Abidjan / Lagos / Londres / New York</p>
+                    <p>Creative Labs, Siège Social</p>
+                </div>
+                <div>
+                    <h5 class="text-white mb-6">Réseaux</h5>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-orange-500 transition">Instagram</a>
+                        <a href="#" class="hover:text-orange-500 transition">X</a>
+                        <a href="#" class="hover:text-orange-500 transition">Tiktok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer pour les animations de révélation
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Logique du Chat à l'affût
+        const cat = document.getElementById('stalking-cat');
+        let lastScrollTop = 0;
+        let speakTimeout;
+
+        window.addEventListener('scroll', () => {
+            const st = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Le chat sort de plus en plus au scroll
+            const peekAmount = Math.min(st / 10, 100);
+            cat.style.transform = `translateY(-${peekAmount}px)`;
+
+            // Le chat "parle" lors de l'arrêt du scroll ou paliers
+            if (st > lastScrollTop && st > 500) {
+                clearTimeout(speakTimeout);
+                cat.classList.add('speak');
+                speakTimeout = setTimeout(() => {
+                    cat.classList.remove('speak');
+                }, 3000);
+            }
+
+            // Parallaxe images
+            document.querySelectorAll('.parallax-img').forEach(img => {
+                const speed = img.dataset.speed;
+                const offset = window.pageYOffset * speed;
+                img.style.transform = `translateY(${offset}px)`;
+            });
+
+            // Effet de zoom sur le moment chat
+            const zoomCat = document.getElementById('zoom-cat');
+            if(zoomCat) {
+                const rect = zoomCat.getBoundingClientRect();
+                if(rect.top < window.innerHeight && rect.bottom > 0) {
+                    const zoomVal = 1.1 + (st / 5000);
+                    zoomCat.style.transform = `scale(${zoomVal})`;
+                }
+            }
+
+            lastScrollTop = st <= 0 ? 0 : st;
+        }, false);
+
+        // Effet de tilt au survol des produits
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const dx = e.clientX - rect.left - rect.width / 2;
+                const dy = e.clientY - rect.top - rect.height / 2;
+                card.style.transform = `perspective(1000px) rotateY(${dx/20}deg) rotateX(${-dy/20}deg) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `none`;
+            });
+        });
+    </script>
+</body>
+</html>
